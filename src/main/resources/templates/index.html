@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Sample Project" />
+    <meta name="author" content="BBW RL" />
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.2-dist/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div style="margin-left: 5rem">
+		<h1>Personenverwaltung</h1>
+			<div th:each="person : ${personlist}">
+				<h2 th:text="${person.vorname}"></h2>
+				<p th:text="${person.nachname}"></p>
+				<p th:text="${person.email}"></p>
+				<a th:href="@{/person/{id}(id = ${person.id})}">more ...</a>
+			</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script th:src="@{/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
