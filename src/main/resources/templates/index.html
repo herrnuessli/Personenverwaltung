@@ -13,12 +13,22 @@
 <body>
 	<div style="margin-left: 5rem">
 		<h1>Personenverwaltung</h1>
+		<button><a href="http://localhost:8090/index.php?route=/table/change&db=Personenverwaltung&table=person">create user</a><button>
+		<table>
+			<tr>
+				<th>Vorname</th>
+				<th>Nachname</th>
+				<th>email</th>
+			</tr>
 			<div th:each="person : ${personlist}">
-				<h2 th:text="${person.vorname}"></h2>
-				<p th:text="${person.nachname}"></p>
-				<p th:text="${person.email}"></p>
-				<a th:href="@{/person/{id}(id = ${person.id})}">more ...</a>
+				<tr>
+					<th th:text="${person.vorname}"></th>
+					<th th:text="${person.nachname}"></th>
+					<th th:text="${person.email}"></th>
+					<th><a href="http://localhost:8090/index.php?route=/sql&db=Personenverwaltung&table=person&pos=0">change</a></th>
+				</tr>
 			</div>
+		</table>
 	</div>
 
 	<!-- Bootstrap core JavaScript
